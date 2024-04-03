@@ -4,14 +4,15 @@
     "type": "symfony-bundle",
     "license": "Proprietary",
     "require": {
-        "php":"^8.0",
+        "php": "^8.0",
+        "league/container": "^2.5",
+        "php-http/client-common": "^2.4",
+        "php-http/discovery": "^1.19.0",
         "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
         "symfony/cache": "^6.0",
         "symfony/dependency-injection": "^6.0",
-        "symfony/http-kernel": "^6.0",
-        "league/container": "^2.5",
-        "php-http/discovery": "^1.19.0",
-        "psr/http-factory": "^1.0"
+        "symfony/http-kernel": "^6.0"
     },
     "require-dev": {
         "10up/wp_mock": "0.4.2",
