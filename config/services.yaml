@@ -1,0 +1,9 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  IM\Fabric\Package\IdentityApiBundle\:
+    resource: '%kernel.project_dir%/vendor/immediate/im-identity-api-bundle/src/*'
+    exclude: '%kernel.project_dir%/vendor/immediate/im-identity-api-bundle/src/{DependencyInjection,Api}'
