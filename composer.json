@@ -1,0 +1,53 @@
+{
+    "name": "immediate/im-identity-api-bundle",
+    "description": "Communicating with Identity APIs",
+    "type": "symfony-bundle",
+    "license": "Proprietary",
+    "require": {
+        "php":"^8.0",
+        "psr/http-client": "^1.0",
+        "symfony/cache": "^5.3",
+        "symfony/dependency-injection": "^4.4|^5.0",
+        "symfony/http-kernel": "^4.4|^5.0",
+        "league/container": "^2.5"
+    },
+    "require-dev": {
+        "10up/wp_mock": "0.4.2",
+        "mockery/mockery": "^1.4",
+        "overtrue/phplint": "^2.3",
+        "phpmd/phpmd": "^2.9",
+        "phpunit/phpunit": "^9.3",
+        "roave/security-advisories": "dev-master",
+        "squizlabs/php_codesniffer": "^3.5",
+        "php-http/curl-client": "^2.2",
+        "laminas/laminas-diactoros": "^2.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "IM\\Fabric\\Package\\IdentityApiBundle\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "/tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IM\\Fabric\\Package\\IdentityApiBundle\\Test\\": "tests/"
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "scripts": {
+        "check-coverage": "vendor/bin/phpunit --coverage-html build && open build/index.html",
+        "run-tests": "composer run-phpunit && composer run-phpcs && composer run-phpmd && composer run-phplint",
+        "run-phpcs": "vendor/bin/phpcs",
+        "run-phpmd": "vendor/bin/phpmd src text phpmd-src.xml && vendor/bin/phpmd tests text phpmd-tests.xml",
+        "run-phplint": "vendor/bin/phplint",
+        "run-phpunit": "vendor/bin/phpunit"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
