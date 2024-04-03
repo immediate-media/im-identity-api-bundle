@@ -10,7 +10,8 @@
         "symfony/dependency-injection": "^6.0",
         "symfony/http-kernel": "^6.0",
         "league/container": "^2.5",
-        "php-http/discovery": "^1.19.0"
+        "php-http/discovery": "^1.19.0",
+        "psr/http-factory": "^1.0"
     },
     "require-dev": {
         "10up/wp_mock": "0.4.2",
