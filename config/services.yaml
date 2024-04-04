@@ -6,4 +6,4 @@ services:
 
   IM\Fabric\Package\IdentityApiBundle\:
     resource: '%kernel.project_dir%/vendor/immediate/im-identity-api-bundle/src/*'
-    exclude: '%kernel.project_dir%/vendor/immediate/im-identity-api-bundle/src/{DependencyInjection,Api}'
+    exclude: '%kernel.project_dir%/vendor/immediate/im-identity-api-bundle/src/{Api}'

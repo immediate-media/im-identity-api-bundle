@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace IM\Fabric\Package\IdentityApiBundle\Client;
 
 use Http\Client\Common\HttpMethodsClientInterface;
+use Http\Client\Common\Plugin\AuthenticationPlugin;
 use Http\Client\Common\Plugin\BaseUriPlugin;
+use Http\Client\Common\Plugin\ContentTypePlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
+use Http\Message\Authentication\Bearer;
 use IM\Fabric\Package\IdentityApiBundle\Api\Account\AccountSettings;
 use IM\Fabric\Package\IdentityApiBundle\Api\ApiInterface;
 use IM\Fabric\Package\IdentityApiBundle\Builder\ClientBuilder;
@@ -23,9 +26,8 @@ class AccountClient implements ClientInterface
         $this->clientBuilder->addPlugin(new BaseUriPlugin($options->getAccountsEndpoint()));
         $this->clientBuilder->addPlugin(new HeaderDefaultsPlugin([
             'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
-            'Authorization' => $this->getAuthHeaders()
         ]));
+        $this->clientBuilder->addPlugin(new AuthenticationPlugin(new Bearer($this->getToken())));
     }
 
     public function apiCall(string $name): ApiInterface
@@ -41,9 +43,9 @@ class AccountClient implements ClientInterface
         return $this->clientBuilder->getHttpClient();
     }
 
-    private function getAuthHeaders(): string
+    private function getToken(): string
     {
         $body = $this->accessClient->apiCall('accessToken')->getToken('IdentityAccountApi');
-        return 'Bearer ' . $body['access_token'];
+        return $body['access_token'];
     }
 }

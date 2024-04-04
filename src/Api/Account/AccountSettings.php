@@ -10,11 +10,6 @@ class AccountSettings extends AccountApi
 {
     const PATH = '/v1/settings';
 
-    public function getAll(): array
-    {
-        return $this->get(self::PATH);
-    }
-
     public function getUserSettings(string $tenantId, string $userId): array
     {
         return $this->get(sprintf(self::PATH . '/%s/%s/', $tenantId, $userId));

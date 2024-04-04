@@ -8,21 +8,13 @@ use IM\Fabric\Package\IdentityApiBundle\Api\AccessApi;
 
 class Connect extends AccessApi
 {
-    private const path = '/connect/token';
+    private const PATH = '/connect/token';
 
     public function getToken(string $scopes): array
     {
-        return $this->post(
-            self::path,
-            [
-                'grant_type' => 'client_credentials',
-                'client_id' => $this->clientId,
-                'client_secret' => $this->clientSecret,
-                'scope' => $scopes,
-            ],
-            [
-                'Content-Type' => 'application/x-www-form-urlencoded',
-            ]
+        return $this->postRaw(
+            self::PATH,
+            sprintf('grant_type=client_credentials&client_id=%s&client_secret=%s&scope=%s', $this->clientId, $this->clientSecret, $scopes)
         );
     }
 }

@@ -6,6 +6,7 @@ namespace IM\Fabric\Package\IdentityApiBundle\Client;
 
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\BaseUriPlugin;
+use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use IM\Fabric\Package\IdentityApiBundle\Api\Access\Connect;
 use IM\Fabric\Package\IdentityApiBundle\Api\ApiInterface;
 use IM\Fabric\Package\IdentityApiBundle\Builder\ClientBuilder;
@@ -22,6 +23,9 @@ class AccessClient implements ClientInterface
     {
         $this->clientBuilder = $options->getClientBuilder();
         $this->clientBuilder->addPlugin(new BaseUriPlugin($options->getAccessEndpoint()));
+        $this->clientBuilder->addPlugin(new HeaderDefaultsPlugin([
+            'Content-Type' => 'application/x-www-form-urlencoded',
+        ]));
 
         $this->clientId = $options->getIdentityClient();
         $this->clientSecret = $options->getIdentityClientSecret();
@@ -43,5 +47,4 @@ class AccessClient implements ClientInterface
     {
         return $this->clientBuilder->getHttpClient();
     }
-
 }

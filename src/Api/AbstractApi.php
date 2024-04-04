@@ -20,10 +20,15 @@ class AbstractApi implements ApiInterface
 
     protected function post($path, array $parameters = [], array $requestHeaders = []) : array
     {
+        return $this->postRaw($path, json_encode($parameters), $requestHeaders);
+    }
+
+    protected function postRaw($path, $body, array $requestHeaders = []) : array
+    {
         return $this->parseResponse($this->client->getHttpClient()->post(
             $path,
             $requestHeaders,
-            json_encode($parameters)
+            $body
         ));
     }
 

@@ -43,7 +43,7 @@ class Options
 
     public function getClientBuilder(): ClientBuilder
     {
-        return $this->options['clientBuilder'];
+        return new ClientBuilder();
     }
 
     public function getIdentityClient(): string
@@ -75,7 +75,6 @@ class Options
     {
         $resolver->setDefaults([
             'environment' => 'preproduction',
-            'clientBuilder' => new ClientBuilder()
         ]);
 
         $resolver->setAllowedValues('environment', self::SUPPORTED_ENVS);
