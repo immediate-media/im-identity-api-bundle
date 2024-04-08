@@ -7,3 +7,14 @@ services:
   IM\Fabric\Package\IdentityApiBundle\:
     resource: '%kernel.project_dir%/vendor/immediate/im-identity-api-bundle/src/*'
     exclude: '%kernel.project_dir%/vendor/immediate/im-identity-api-bundle/src/{Api}'
+
+  IM\Fabric\Package\IdentityApiBundle\Options:
+    arguments:
+      $options:
+        environment: '%env(APP_ENV)%'
+        identityClient: '%env(IDENTITY_CLIENT)%'
+        identityClientSecret: '%env(IDENTITY_CLIENT_SECRET)%'
+
+  IM\Fabric\Package\IdentityApiBundle\Builder\ClientBuilder:
+    arguments:
+      $httpClient: '@http_client'

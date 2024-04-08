@@ -10,8 +10,14 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class IdentityApiBundle extends AbstractBundle
 {
-    public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
-    {
-        $containerConfigurator->import('../config/services.yaml');
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function loadExtension(
+        array $config,
+        ContainerConfigurator $configurator,
+        ContainerBuilder $builder
+    ): void {
+        $configurator->import('../config/services.yaml');
     }
 }

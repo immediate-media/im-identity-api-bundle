@@ -7,27 +7,18 @@ namespace IM\Fabric\Package\IdentityApiBundle\Client;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AuthenticationPlugin;
 use Http\Client\Common\Plugin\BaseUriPlugin;
-use Http\Client\Common\Plugin\ContentTypePlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Message\Authentication\Bearer;
 use IM\Fabric\Package\IdentityApiBundle\Api\Account\AccountSettings;
 use IM\Fabric\Package\IdentityApiBundle\Api\ApiInterface;
-use IM\Fabric\Package\IdentityApiBundle\Builder\ClientBuilder;
+use IM\Fabric\Package\IdentityApiBundle\Cache\AccessTokenCache;
 use IM\Fabric\Package\IdentityApiBundle\Options;
 use InvalidArgumentException;
 
 class AccountClient implements ClientInterface
 {
-    private ClientBuilder $clientBuilder;
-
-    public function __construct(Options $options, private readonly AccessClient $accessClient)
+    public function __construct(private readonly Options $options, private readonly AccessTokenCache $accessTokenCache)
     {
-        $this->clientBuilder = $options->getClientBuilder();
-        $this->clientBuilder->addPlugin(new BaseUriPlugin($options->getAccountsEndpoint()));
-        $this->clientBuilder->addPlugin(new HeaderDefaultsPlugin([
-            'Content-Type' => 'application/json',
-        ]));
-        $this->clientBuilder->addPlugin(new AuthenticationPlugin(new Bearer($this->getToken())));
     }
 
     public function apiCall(string $name): ApiInterface
@@ -38,14 +29,17 @@ class AccountClient implements ClientInterface
         };
     }
 
-    public function getHttpClient(): HttpMethodsClientInterface
+    public function prepareHttpClient(): HttpMethodsClientInterface
     {
-        return $this->clientBuilder->getHttpClient();
-    }
+        $clientBuilder = $this->options->getClientBuilder();
+        $clientBuilder->addPlugin(new BaseUriPlugin($this->options->getAccountsEndpoint()));
+        $clientBuilder->addPlugin(new HeaderDefaultsPlugin([
+            'Content-Type' => 'application/json',
+        ]));
+        $clientBuilder->addPlugin(
+            new AuthenticationPlugin(new Bearer($this->accessTokenCache->getToken('IdentityAccountApi')))
+        );
 
-    private function getToken(): string
-    {
-        $body = $this->accessClient->apiCall('accessToken')->getToken('IdentityAccountApi');
-        return $body['access_token'];
+        return $clientBuilder->getHttpClient();
     }
 }

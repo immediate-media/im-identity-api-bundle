@@ -8,7 +8,7 @@ use IM\Fabric\Package\IdentityApiBundle\Api\AccountApi;
 
 class AccountSettings extends AccountApi
 {
-    const PATH = '/v1/settings';
+    private const PATH = '/v1/settings';
 
     public function getUserSettings(string $tenantId, string $userId): array
     {

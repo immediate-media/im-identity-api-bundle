@@ -9,6 +9,6 @@ use IM\Fabric\Package\IdentityApiBundle\Api\ApiInterface;
 
 interface ClientInterface
 {
-    public function getHttpClient() : HttpMethodsClientInterface;
+    public function prepareHttpClient(): HttpMethodsClientInterface;
     public function apiCall(string $name): ApiInterface;
 }

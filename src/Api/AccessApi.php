@@ -12,8 +12,7 @@ class AccessApi extends AbstractApi
         AccessClient $client,
         protected readonly string $clientId,
         protected readonly string $clientSecret
-    )
-    {
+    ) {
         parent::__construct($client);
     }
 }

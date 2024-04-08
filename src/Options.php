@@ -30,11 +30,13 @@ class Options
     private array $options;
     private UriFactoryInterface $uriFactory;
 
+    /**
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function __construct(
         array $options = [],
         UriFactoryInterface $uriFactory = null
-    )
-    {
+    ) {
         $this->uriFactory = $uriFactory ?: Psr17FactoryDiscovery::findUriFactory();
         $resolver = new OptionsResolver();
         $this->configureOptions($resolver);

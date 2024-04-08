@@ -11,8 +11,9 @@ build
 .phplint-cache
 
 ### PHP Unit ###
-.phpunit.result.cache
+.phpunit.cache
 
 ### Composer ###
 composer.lock
 vendor/
+var/

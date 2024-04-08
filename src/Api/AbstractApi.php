@@ -4,28 +4,35 @@ declare(strict_types=1);
 
 namespace IM\Fabric\Package\IdentityApiBundle\Api;
 
+use Http\Client\Exception;
 use IM\Fabric\Package\IdentityApiBundle\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class AbstractApi implements ApiInterface
+abstract class AbstractApi implements ApiInterface
 {
     public function __construct(protected readonly ClientInterface $client)
     {
     }
 
-    protected function get(string $path) : array
+    /**
+     * @throws Exception
+     */
+    protected function get(string $path): array
     {
-        return $this->parseResponse($this->client->getHttpClient()->get($path));
+        return $this->parseResponse($this->client->prepareHttpClient()->get($path));
     }
 
-    protected function post($path, array $parameters = [], array $requestHeaders = []) : array
+    protected function post($path, array $body = [], array $requestHeaders = []): array
     {
-        return $this->postRaw($path, json_encode($parameters), $requestHeaders);
+        return $this->postRaw($path, json_encode($body), $requestHeaders);
     }
 
-    protected function postRaw($path, $body, array $requestHeaders = []) : array
+    /**
+     * @throws Exception
+     */
+    protected function postRaw($path, $body, array $requestHeaders = []): array
     {
-        return $this->parseResponse($this->client->getHttpClient()->post(
+        return $this->parseResponse($this->client->prepareHttpClient()->post(
             $path,
             $requestHeaders,
             $body

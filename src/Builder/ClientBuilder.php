@@ -21,6 +21,9 @@ class ClientBuilder
     private StreamFactoryInterface $streamFactory;
     private array $plugins;
 
+    /**
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function __construct(
         ClientInterface $httpClient = null,
         RequestFactoryInterface $requestFactory = null,

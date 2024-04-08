@@ -15,36 +15,30 @@ use InvalidArgumentException;
 
 class AccessClient implements ClientInterface
 {
-    private ClientBuilder $clientBuilder;
-    private readonly string $clientId;
-    private readonly string $clientSecret;
-
-    public function __construct(Options $options)
+    public function __construct(private readonly Options $options)
     {
-        $this->clientBuilder = $options->getClientBuilder();
-        $this->clientBuilder->addPlugin(new BaseUriPlugin($options->getAccessEndpoint()));
-        $this->clientBuilder->addPlugin(new HeaderDefaultsPlugin([
-            'Content-Type' => 'application/x-www-form-urlencoded',
-        ]));
-
-        $this->clientId = $options->getIdentityClient();
-        $this->clientSecret = $options->getIdentityClientSecret();
     }
 
     public function apiCall(string $name): ApiInterface
     {
         return match ($name) {
-            'accessToken' => new Connect(
+            'serviceToken' => new Connect(
                 $this,
-                $this->clientId,
-                $this->clientSecret
+                $this->options->getIdentityClient(),
+                $this->options->getIdentityClientSecret()
             ),
             default => throw new InvalidArgumentException(sprintf('Undefined api instance called: "%s"', $name)),
         };
     }
 
-    public function getHttpClient(): HttpMethodsClientInterface
+    public function prepareHttpClient(): HttpMethodsClientInterface
     {
-        return $this->clientBuilder->getHttpClient();
+        $clientBuilder = $this->options->getClientBuilder();
+        $clientBuilder->addPlugin(new BaseUriPlugin($this->options->getAccessEndpoint()));
+        $clientBuilder->addPlugin(new HeaderDefaultsPlugin([
+            'Content-Type' => 'application/x-www-form-urlencoded',
+        ]));
+
+        return $clientBuilder->getHttpClient();
     }
 }

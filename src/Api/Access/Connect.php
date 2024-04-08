@@ -14,7 +14,12 @@ class Connect extends AccessApi
     {
         return $this->postRaw(
             self::PATH,
-            sprintf('grant_type=client_credentials&client_id=%s&client_secret=%s&scope=%s', $this->clientId, $this->clientSecret, $scopes)
+            sprintf(
+                'grant_type=client_credentials&client_id=%s&client_secret=%s&scope=%s',
+                $this->clientId,
+                $this->clientSecret,
+                $scopes
+            )
         );
     }
 }
