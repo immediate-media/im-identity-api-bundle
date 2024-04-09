@@ -54,7 +54,7 @@ class AccountClientTest extends TestCase
         $clientBuilder->expects('addPlugin')->with(Mockery::type(AuthenticationPlugin::class));
         $this->options->expects('getClientBuilder')->andReturn($clientBuilder);
 
-        $this->tokenCache->expects('getToken')->with('IdentityAccountApi')->andReturn('token');
+        $this->tokenCache->expects('getToken')->with('account:cdp-settings:read')->andReturn('token');
 
         $uriInterface = Mockery::mock(UriInterface::class);
         $uriInterface->allows('getHost')->andReturn('host');
