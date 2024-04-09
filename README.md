@@ -116,3 +116,5 @@ public function deleteEntityTwo(int $id): void
 The purpose for this is to allow our code to match the api structure and to make it easier to understand what is being called.
 
 The full list of apis and calls that are available are documented [here](documentation/SupportedApiCalls.md)
+
+POKE
