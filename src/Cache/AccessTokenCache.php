@@ -23,7 +23,7 @@ class AccessTokenCache
     {
         return $this->cache->get($this->getCacheKey($scopes), function (ItemInterface $item) use ($scopes) {
             try {
-                $token = $this->accessClient->apiCall('serviceToken')->getToken('IdentityAccountApi');
+                $token = $this->accessClient->apiCall('serviceToken')->getToken($scopes);
             } catch (RuntimeException $e) {
                 throw new RuntimeException('Could not retrieve token from Identity Access API.', 0, $e);
             }

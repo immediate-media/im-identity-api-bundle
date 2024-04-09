@@ -17,6 +17,8 @@ use InvalidArgumentException;
 
 class AccountClient implements ClientInterface
 {
+    private const ACCOUNT_SCOPES = 'account:cdp-settings:read';
+
     public function __construct(private readonly Options $options, private readonly AccessTokenCache $accessTokenCache)
     {
     }
@@ -37,7 +39,7 @@ class AccountClient implements ClientInterface
             'Content-Type' => 'application/json',
         ]));
         $clientBuilder->addPlugin(
-            new AuthenticationPlugin(new Bearer($this->accessTokenCache->getToken('IdentityAccountApi')))
+            new AuthenticationPlugin(new Bearer($this->accessTokenCache->getToken(self::ACCOUNT_SCOPES)))
         );
 
         return $clientBuilder->getHttpClient();

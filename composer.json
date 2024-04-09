@@ -15,7 +15,6 @@
         "symfony/http-kernel": "^6.0"
     },
     "require-dev": {
-        "10up/wp_mock": "0.4.2",
         "mockery/mockery": "^1.4",
         "overtrue/phplint": "^2.3",
         "phpmd/phpmd": "^2.9",

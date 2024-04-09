@@ -41,6 +41,7 @@ abstract class AbstractApi implements ApiInterface
 
     private function parseResponse(ResponseInterface $response): array
     {
+        // We're assuming that any request that we make will return json in the response. This may change in the future.
         return json_decode($response->getBody()->getContents(), true);
     }
 }
