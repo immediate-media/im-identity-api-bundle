@@ -1,9 +1,8 @@
 name: PHP Package Tests
 on:
-  push:
+  pull_request:
     branches:
       - main
-  pull_request:
 
 jobs:
   call-workflow:
