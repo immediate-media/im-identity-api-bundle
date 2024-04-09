@@ -12,8 +12,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class Options
 {
-    private const SUPPORTED_ENVS = ['local', 'build', 'staging', 'preproduction', 'production'];
+    private const SUPPORTED_ENVS = ['dev', 'local', 'build', 'staging', 'preproduction', 'production'];
     private const IDENTITY_ACCOUNTS_ENDPOINT_DICTIONARY = [
+        'dev' => 'https://account-api-preproduction.headless-preproduction.imdserve.com',
         'local' => 'https://account-api-preproduction.headless-preproduction.imdserve.com',
         'build' => 'https://account-api-staging.headless-sandbox.imdserve.com',
         'staging' => 'https://account-api-staging.headless-sandbox.imdserve.com',
@@ -21,6 +22,7 @@ class Options
         'production' => 'https://account-api-production.headless.imdserve.com'
     ];
     private const IDENTITY_ACCESS_ENDPOINT_DICTIONARY = [
+        'dev' => 'https://access-api.preproduction-api.immediate.co.uk',
         'local' => 'https://access-api.preproduction-api.immediate.co.uk',
         'build' => 'https://access-api.staging-api.immediate.co.uk',
         'staging' => 'https://access-api.staging-api.immediate.co.uk',
