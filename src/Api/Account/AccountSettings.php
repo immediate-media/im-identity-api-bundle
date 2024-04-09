@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle\Api\Account;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Api\Account;
 
-use IM\Fabric\Package\IdentityApiBundle\Api\AccountApi;
+use IM\Fabric\Bundle\IdentityApiBundle\Api\AccountApi;
 
 class AccountSettings extends AccountApi
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle\Client;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Client;
 
 use Http\Client\Common\HttpMethodsClientInterface;
-use IM\Fabric\Package\IdentityApiBundle\Api\ApiInterface;
+use IM\Fabric\Bundle\IdentityApiBundle\Api\ApiInterface;
 
 interface ClientInterface
 {

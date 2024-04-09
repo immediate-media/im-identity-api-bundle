@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle\Api;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Api;
 
 use Http\Client\Exception;
-use IM\Fabric\Package\IdentityApiBundle\Client\ClientInterface;
+use IM\Fabric\Bundle\IdentityApiBundle\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractApi implements ApiInterface

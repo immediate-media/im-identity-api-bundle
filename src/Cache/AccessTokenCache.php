@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle\Cache;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Cache;
 
-use IM\Fabric\Package\IdentityApiBundle\Client\AccessClient;
+use IM\Fabric\Bundle\IdentityApiBundle\Client\AccessClient;
 use RuntimeException;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;

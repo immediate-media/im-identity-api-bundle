@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle\Api\Access;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Api\Access;
 
-use IM\Fabric\Package\IdentityApiBundle\Api\AccessApi;
+use IM\Fabric\Bundle\IdentityApiBundle\Api\AccessApi;
 
 class Connect extends AccessApi
 {

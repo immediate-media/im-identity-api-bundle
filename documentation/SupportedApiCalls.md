@@ -2,7 +2,7 @@
 Use the `AccessClient` to make requests to the Identity Access API.
 ### Service Token - Get Token
 ```php
-$accessClient->apiCall('serviceToken')->getToken(string $spaceDelimintedScopes);
+$accessClient->apiCall('serviceToken')->getToken(string $spaceDelimitedScopes);
 ```
 
 # Account API

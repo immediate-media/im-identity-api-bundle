@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle\Client;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Client;
 
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AuthenticationPlugin;
 use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Message\Authentication\Bearer;
-use IM\Fabric\Package\IdentityApiBundle\Api\Account\AccountSettings;
-use IM\Fabric\Package\IdentityApiBundle\Api\ApiInterface;
-use IM\Fabric\Package\IdentityApiBundle\Cache\AccessTokenCache;
-use IM\Fabric\Package\IdentityApiBundle\Options;
+use IM\Fabric\Bundle\IdentityApiBundle\Api\Account\AccountSettings;
+use IM\Fabric\Bundle\IdentityApiBundle\Api\ApiInterface;
+use IM\Fabric\Bundle\IdentityApiBundle\Cache\AccessTokenCache;
+use IM\Fabric\Bundle\IdentityApiBundle\Options;
 use InvalidArgumentException;
 
 class AccountClient implements ClientInterface

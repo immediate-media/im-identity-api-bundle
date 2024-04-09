@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle\Client;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Client;
 
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
-use IM\Fabric\Package\IdentityApiBundle\Api\Access\Connect;
-use IM\Fabric\Package\IdentityApiBundle\Api\ApiInterface;
-use IM\Fabric\Package\IdentityApiBundle\Builder\ClientBuilder;
-use IM\Fabric\Package\IdentityApiBundle\Options;
+use IM\Fabric\Bundle\IdentityApiBundle\Api\Access\Connect;
+use IM\Fabric\Bundle\IdentityApiBundle\Api\ApiInterface;
+use IM\Fabric\Bundle\IdentityApiBundle\Builder\ClientBuilder;
+use IM\Fabric\Bundle\IdentityApiBundle\Options;
 use InvalidArgumentException;
 
 class AccessClient implements ClientInterface

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle;
+namespace IM\Fabric\Bundle\IdentityApiBundle;
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

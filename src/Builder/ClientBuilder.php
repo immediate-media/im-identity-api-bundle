@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle\Builder;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Builder;
 
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\HttpMethodsClientInterface;

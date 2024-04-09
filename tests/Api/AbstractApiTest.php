@@ -1,10 +1,10 @@
 <?php
 
-namespace IM\Fabric\Package\IdentityApiBundle\Test\Api;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Test\Api;
 
 use Http\Client\Common\HttpMethodsClientInterface;
-use IM\Fabric\Package\IdentityApiBundle\Api\AbstractApi;
-use IM\Fabric\Package\IdentityApiBundle\Client\ClientInterface;
+use IM\Fabric\Bundle\IdentityApiBundle\Api\AbstractApi;
+use IM\Fabric\Bundle\IdentityApiBundle\Client\ClientInterface;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;

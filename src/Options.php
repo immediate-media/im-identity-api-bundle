@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Package\IdentityApiBundle;
+namespace IM\Fabric\Bundle\IdentityApiBundle;
 
 use Http\Discovery\Psr17FactoryDiscovery;
-use IM\Fabric\Package\IdentityApiBundle\Builder\ClientBuilder;
+use IM\Fabric\Bundle\IdentityApiBundle\Builder\ClientBuilder;
 use Psr\Http\Message\UriFactoryInterface;
 use Psr\Http\Message\UriInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

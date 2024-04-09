@@ -1,8 +1,8 @@
 <?php
 
-namespace IM\Fabric\Package\IdentityApiBundle\Tests;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Tests;
 
-use IM\Fabric\Package\IdentityApiBundle\Options;
+use IM\Fabric\Bundle\IdentityApiBundle\Options;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;

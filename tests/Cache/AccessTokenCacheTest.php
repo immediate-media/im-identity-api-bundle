@@ -1,9 +1,9 @@
 <?php
 
-namespace IM\Fabric\Package\IdentityApiBundle\Test\Cache;
+namespace IM\Fabric\Bundle\IdentityApiBundle\Test\Cache;
 
-use IM\Fabric\Package\IdentityApiBundle\Cache\AccessTokenCache;
-use IM\Fabric\Package\IdentityApiBundle\Client\AccessClient;
+use IM\Fabric\Bundle\IdentityApiBundle\Cache\AccessTokenCache;
+use IM\Fabric\Bundle\IdentityApiBundle\Client\AccessClient;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;

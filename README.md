@@ -24,7 +24,7 @@ It will also need to be added as a dependency
 The below should automatically be added to your `config/bundles.php` file as part of a `composer update`. 
 
 ```php
-IM\Fabric\Package\IdentityApiBundle\IdentityApiBundle::class => ['all' => true]
+IM\Fabric\Bundle\IdentityApiBundle\IdentityApiBundle::class => ['all' => true]
 ```
 
 If not, run `composer recipes:install immediate/im-identity-api-bundle --force`
@@ -50,18 +50,16 @@ For dev, local and build, the urls will be set to:
 
 Depending on which Identity API you are going to make requests to, you will need to pass through a client id and client secret that has access to the required scopes.
 
-### Service configuration
-
-By default, the bundle will automatically read the required configuration from the ENVIRONMENT variables using the following keys:
+By default, the bundle will automatically read the required configuration from ENVIRONMENT variables using the following keys:
 
 - APP_ENV
 - IDENTITY_CLIENT
 - IDENTITY_CLIENT_SECRET
 
-If you would like to override this, you can add the following to your `services.yaml` file:
+If ENV vars are not set up this way, or you would like to override this, you can add the following to your `services.yaml` file:
 
 ```yaml
-    IM\Fabric\Package\IdentityApiBundle\Options:
+    IM\Fabric\Bundle\IdentityApiBundle\Options:
       arguments:
         $options:
           {
