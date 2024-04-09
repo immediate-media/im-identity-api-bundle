@@ -39,6 +39,6 @@ class AccessTokenCache
 
     private function getCacheKey(string $scopes): string
     {
-        return sprintf(self::CACHE_KEY_FORMAT, $scopes);
+        return sprintf(self::CACHE_KEY_FORMAT, str_replace(' ', '', $scopes));
     }
 }

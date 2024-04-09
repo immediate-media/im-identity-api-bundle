@@ -69,11 +69,15 @@ If ENV vars are not set up this way, or you would like to override this, you can
           }
 ```
 
+### Cache
+
+The `AccessTokenCache` class takes a `Symfony\Contracts\Cache\CacheInterface` object as a constructor argument. This is used to cache the access token that is retrieved from the Identity API.
+
 ## Usage
 
 The bundle works by provides a client class which talks to a specific api, an `apiCall` method which references a specific sub-section of the api and then finally the request to make. 
 
-For example, I have an api that looks like this
+For example, I have an api that looks like this: 
 
 ```
 MyExampleApi
