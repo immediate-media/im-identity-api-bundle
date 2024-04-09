@@ -19,11 +19,7 @@ jobs:
           php-version: '8.3'
 
       - name: Install dependencies
-        run: |
-          cd app
-          composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: Run tests
-        run: |
-          cd app
-          composer run-tests
+        run: composer run-tests
