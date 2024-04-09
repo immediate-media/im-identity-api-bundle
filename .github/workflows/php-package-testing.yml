@@ -6,6 +6,6 @@ on:
 
 jobs:
   call-workflow:
-    uses: ./.github/workflows/in-same-repo.yml
+    uses: immediate-media/github-actions/.github/workflows/php-package-testing.yml@feature-php-workflow
     with:
       php-version: '8.2'
