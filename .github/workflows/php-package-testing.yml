@@ -7,6 +7,6 @@ on:
 
 jobs:
   call-workflow:
-    uses: immediate-media/github-actions/.github/workflows/dotnet-pkg-vuln-chk.yml@feature/php-workflow
+    uses: immediate-media/github-actions/.github/workflows/php-package-testing.yml@feature/php-workflow
     with:
       php-version: '8.2'
