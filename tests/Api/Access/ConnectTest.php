@@ -35,6 +35,8 @@ class ConnectTest extends TestCase
 
         $clientInterface = Mockery::mock(HttpMethodsClientInterface::class);
         $responseInterface = Mockery::mock(ResponseInterface::class);
+
+        $responseInterface->expects('getStatusCode')->andReturn(200);
         $responseInterface->expects('getBody')->andReturnSelf();
         $responseInterface->expects('getContents')->andReturn(json_encode($expected));
 

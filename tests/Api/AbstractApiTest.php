@@ -9,6 +9,7 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
 
 class AbstractApiTest extends TestCase
 {
@@ -27,6 +28,7 @@ class AbstractApiTest extends TestCase
         $client->allows('prepareHttpClient')->andReturn($this->httpClientsMethods)->byDefault();
 
         $this->responseInterface = Mockery::mock(ResponseInterface::class);
+        $this->responseInterface->allows('getStatusCode')->andReturn(200)->byDefault();
         $this->responseInterface->allows('getBody')->andReturnSelf()->byDefault();
         $this->responseInterface->allows('getContents')
             ->andReturn(json_encode(self::DEFAULT_RESPONSE_BODY))
@@ -70,5 +72,13 @@ class AbstractApiTest extends TestCase
             ->with('/', [], 'whatever POST body')
             ->andReturn($this->responseInterface);
         $this->assertSame(self::DEFAULT_RESPONSE_BODY, $this->unit->postRaw('/', 'whatever POST body'));
+    }
+
+    public function testGetThrowsExceptionOn4xxResponseCode(): void
+    {
+        $this->httpClientsMethods->expects('get')->with('/')->andReturn($this->responseInterface);
+        $this->responseInterface->expects('getStatusCode')->andReturn(404);
+        $this->expectException(RuntimeException::class);
+        $this->unit->get('/');
     }
 }

@@ -7,6 +7,7 @@ namespace IM\Fabric\Bundle\IdentityApiBundle\Api;
 use Http\Client\Exception;
 use IM\Fabric\Bundle\IdentityApiBundle\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 abstract class AbstractApi implements ApiInterface
 {
@@ -41,6 +42,10 @@ abstract class AbstractApi implements ApiInterface
 
     private function parseResponse(ResponseInterface $response): array
     {
+        if ($response->getStatusCode() >= 400) {
+            throw new BadRequestException('Client error: ' . $response->getBody()->getContents());
+        }
+
         // We're assuming that any request that we make will return json in the response. This may change in the future.
         return json_decode($response->getBody()->getContents(), true);
     }
