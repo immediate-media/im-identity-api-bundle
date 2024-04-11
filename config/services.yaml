@@ -1,0 +1,20 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  IM\Fabric\Bundle\IdentityApiBundle\:
+    resource: '%kernel.project_dir%/vendor/immediate/im-identity-api-bundle/src/*'
+    exclude: '%kernel.project_dir%/vendor/immediate/im-identity-api-bundle/src/{Api}'
+
+  IM\Fabric\Bundle\IdentityApiBundle\Options:
+    arguments:
+      $options:
+        environment: '%env(APP_ENV)%'
+        identityClient: '%env(IDENTITY_CLIENT)%'
+        identityClientSecret: '%env(IDENTITY_CLIENT_SECRET)%'
+
+  IM\Fabric\Bundle\IdentityApiBundle\Builder\ClientBuilder:
+    arguments:
+      $httpClient: '@http_client'
