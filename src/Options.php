@@ -18,7 +18,9 @@ class Options
         'local' => 'https://account-api-preproduction.headless-preproduction.imdserve.com',
         'build' => 'https://account-api-staging.headless-sandbox.imdserve.com',
         'staging' => 'https://account-api-staging.headless-sandbox.imdserve.com',
+        'preprod' => 'https://account-api-preproduction.headless-preproduction.imdserve.com',
         'preproduction' => 'https://account-api-preproduction.headless-preproduction.imdserve.com',
+        'prod' => 'https://account-api-production.headless.imdserve.com',
         'production' => 'https://account-api-production.headless.imdserve.com'
     ];
     private const IDENTITY_ACCESS_ENDPOINT_DICTIONARY = [
@@ -26,7 +28,9 @@ class Options
         'local' => 'https://access-api.preproduction-api.immediate.co.uk',
         'build' => 'https://access-api.staging-api.immediate.co.uk',
         'staging' => 'https://access-api.staging-api.immediate.co.uk',
+        'preprod' => 'https://access-api.preproduction-api.immediate.co.uk',
         'preproduction' => 'https://access-api.preproduction-api.immediate.co.uk',
+        'prod' => 'https://access-api.api.immediate.co.uk',
         'production' => 'https://access-api.api.immediate.co.uk'
     ];
     private array $options;
