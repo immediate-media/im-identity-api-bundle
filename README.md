@@ -38,7 +38,9 @@ As part of the autoconfiguration, you will need to pass through what env your ap
 - local
 - build
 - staging
+- preprod
 - preproduction
+- prod
 - production
 
 This will automatically configure the urls for the Identity APIs. For staging, preproduction and production, the urls will be set to their respective envs. 
