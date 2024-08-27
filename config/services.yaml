@@ -11,7 +11,7 @@ services:
   IM\Fabric\Bundle\IdentityApiBundle\Options:
     arguments:
       $options:
-        environment: '%env(APP_ENV)%'
+        environment: '%env(DEPLOYED_ENV)%'
         identityClient: '%env(IDENTITY_CLIENT)%'
         identityClientSecret: '%env(IDENTITY_CLIENT_SECRET)%'
 
