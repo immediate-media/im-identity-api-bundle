@@ -54,7 +54,7 @@ Depending on which Identity API you are going to make requests to, you will need
 
 By default, the bundle will automatically read the required configuration from ENVIRONMENT variables using the following keys:
 
-- APP_ENV
+- DEPLOYED_ENV (formerly used APP_ENV)
 - IDENTITY_CLIENT
 - IDENTITY_CLIENT_SECRET
 
